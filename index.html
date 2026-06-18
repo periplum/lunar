@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lunar Landings (1959–present)</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://cdn.jsdelivr.net/gh/periplum/periplum@v0.1.2/dist/periplum.js"></script>
+</head>
+<body>
+<script>
+  Periplum.render({
+    title: "Lunar Landings · 1959–present",
+    dataUrl: "data.json",
+    repo: "https://github.com/periplum/lunar",
+    favicon: "favicon.png",
+    theme: { headerBg: "#0b0b14", accent: "#cfd6ff" },
+    routeLabel: "Landing sequence",
+    statusColors: { "crewed": "#f4c430", "robotic": "#4da3ff", "failed": "#d62728" },
+    seo: {
+      description: "Every crewed and robotic soft landing (and notable crash) on the Moon since 1959, plotted by selenographic coordinates on a lunar basemap. Built with Periplum; refreshable from Wikidata."
+    },
+    basemaps: [
+      { id: "moon", name: "🌙 Moon", type: "image", imageUrl: "moon.jpg",
+        attribution: "Moon texture &copy; <a href='https://www.solarsystemscope.com/textures/'>Solar System Scope</a> (CC BY 4.0)",
+        minZoom: 0, maxZoom: 5 }
+    ]
+  });
+</script>
+</body>
+</html>
