@@ -1,5 +1,7 @@
 # lunar — soft landings on the Moon
 
+[![Built with Periplum](https://img.shields.io/badge/built_with-Periplum-4da3ff)](https://periplum.js.org)
+
 Every crewed and robotic soft landing on the Moon (plus a few notable crashes) since 1959,
 plotted by **selenographic coordinates** on a lunar basemap — a different *world*, same
 Periplum engine.
