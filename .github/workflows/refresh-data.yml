@@ -1,0 +1,25 @@
+name: Refresh data
+
+# Surfaces new lunar landings from Wikidata. data.json is hand-curated (clean
+# crewed/robotic/failed status + notes), so this regenerates a candidate set and
+# uploads it as an artifact for review — the periplum org blocks Actions from
+# pushing or opening PRs, so a human folds new landings into data.json and commits.
+on:
+  schedule:
+    - cron: "0 6 1 1,7 *"   # twice a year (1 Jan & 1 Jul)
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Query Wikidata for lunar landings
+        run: python source.py > wikidata-candidates.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lunar-candidates
+          path: wikidata-candidates.json
